@@ -1,7 +1,9 @@
-import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, Image, Alert } from "react-native";
-import { Ionicons, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
-
+import { Ionicons } from "@expo/vector-icons";
+import { Alert, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import QueroAjudarScreen from "./QueroAjudarScreen";
+import AdotarScreen from "./AdotarScreen";
+import InformacoesScreen from "./InformacoesScreen";
+import OngsScreen from "./OngsScreen";
 
   const handlePressShield = () => {
     Alert.alert('🛡️ Você clicou no escudo!');
@@ -69,7 +71,7 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.buttonText}>Mais{"\n"}Informacoes</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("QueroAjudar")}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("QueroAjudarScreen")}>
             <Image source={require('../../assets/core.png')} style={styles.icons} />
           <Text style={styles.buttonText}>Quero{"\n"}ajudar</Text>
         </TouchableOpacity>
@@ -86,11 +88,11 @@ const styles = StyleSheet.create({
     paddingTop: 60 },
 
   header: { 
-    width: "100%", 
+    width: "110%", 
     flexDirection: "row", 
     justifyContent: "space-between", 
     alignItems: "center",
-  left:"11%", 
+    left:"2%", 
 },
     
   shieldContainer: { 
