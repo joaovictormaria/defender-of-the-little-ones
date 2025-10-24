@@ -13,12 +13,15 @@ const Stack = createNativeStackNavigator();
 export default function AppNavigator() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator 
+        initialRouteName="Home"
+        screenOptions={{ headerShown: false }}
+      >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Adotar" component={AdotarScreen} />
         <Stack.Screen name="Ongs" component={OngsScreen} />
         <Stack.Screen name="Informacoes" component={InformacoesScreen} />
-        <Stack.Screen name="QueroAjudar" component={QueroAjudarScreen} />
+        <Stack.Screen name="QueroAjudarScreen" component={QueroAjudarScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
