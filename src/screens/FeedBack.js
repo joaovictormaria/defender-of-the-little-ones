@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-export default function InformacoesScreen({ navigation }) {
+export default function FeedBack({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Informações</Text>
-      <Text style={styles.text}>Aqui você encontrará dicas e orientações sobre como denunciar.</Text>
+      <Text style={styles.title}>Feedback</Text>
+      <Text style={styles.text}>Informações sobre como contribuir com o projeto.</Text>
       <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.buttonText}>Voltar</Text>
       </TouchableOpacity>

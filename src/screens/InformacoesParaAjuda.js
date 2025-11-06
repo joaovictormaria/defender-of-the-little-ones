@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-export default function AdotarScreen({ navigation }) {
+export default function InformacoesParaAjuda({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Adotar um Amigo</Text>
-      <Text style={styles.text}>Lista de pets disponíveis para adoção.</Text>
+      <Text style={styles.title}>Informações</Text>
+      <Text style={styles.text}>Aqui você encontrará dicas e orientações sobre como denunciar.</Text>
       <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.buttonText}>Voltar</Text>
       </TouchableOpacity>
