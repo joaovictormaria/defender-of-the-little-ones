@@ -1,9 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Alert, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import QueroAjudarScreen from "./QueroAjudarScreen";
-import AdotarScreen from "./AdotarScreen";
-import InformacoesScreen from "./InformacoesScreen";
-import OngsScreen from "./OngsScreen";
 
   const handlePressShield = () => {
     Alert.alert('🛡️ Você clicou no escudo!');
@@ -46,7 +42,7 @@ export default function HomeScreen({ navigation }) {
 
       {/* Escudo */}
       <View style={styles.shieldContainer}>
-        <TouchableOpacity onPress={handlePressShield} size={36} color="#b00000">
+        <TouchableOpacity onPress={() => navigation.navigate("Denunciar")} size={36} color="#b00000">
             
             <Image source={require('../../assets/escudado.png')} style={styles.central} />
         
@@ -56,9 +52,10 @@ export default function HomeScreen({ navigation }) {
 
       {/* Botões */}
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Adotar")}>
+        
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Denuncia")}>
             <Image source={require('../../assets/patinhas.png')} style={styles.icons} />
-          <Text style={styles.buttonText}>Adotar{"\n"}um Amigo</Text>
+          <Text style={styles.buttonText}>Status da{"\n"}Denúncia</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Ongs")}>
@@ -66,14 +63,14 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.buttonText}>ONG’s{"\n"}mais próximas</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Ongs")}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("InformacoesParaAjuda")}>
             <Image source={require('../../assets/lup.png')} style={styles.icons} />
-          <Text style={styles.buttonText}>Mais{"\n"}Informacoes</Text>
+          <Text style={styles.buttonText}>Informações para {"\n"}Ajuda</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("QueroAjudarScreen")}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("FeedBack")}>
             <Image source={require('../../assets/core.png')} style={styles.icons} />
-          <Text style={styles.buttonText}>Quero{"\n"}ajudar</Text>
+          <Text style={styles.buttonText}>Quero Ajudar{"\n"} FeedBack</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>
