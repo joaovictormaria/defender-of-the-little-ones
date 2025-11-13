@@ -1,14 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import AppNavigator from './src/navigation/AppNavigator';
-import HomeScreen from './src/screens/HomeScreen';
+import { SQLiteProvider } from 'expo-sqlite';
 
 export default function App() {
   return (
     <>
-      
+
       <StatusBar style="auto" />
-      <AppNavigator />
+        <AppNavigator />
+      
 
     </>
   );
