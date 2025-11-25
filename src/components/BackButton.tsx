@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
     },
     text: {
-        color: '#fff',
+        color: '#000000',
         fontWeight: 'bold',
         marginLeft: 3,
         fontSize: 14,

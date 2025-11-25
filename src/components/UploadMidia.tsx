@@ -15,7 +15,7 @@ export default function UploadMidia() {
 
         // Abrir seletor de mídia (foto ou vídeo)
         const result = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ImagePicker.MediaTypeOptions.All, // fotos e vídeos
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
             allowsEditing: true,
             quality: 1,
         });

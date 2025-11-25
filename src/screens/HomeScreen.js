@@ -1,18 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Alert, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-  const handlePressShield = () => {
-    Alert.alert('🛡️ Você clicou no escudo!');
-  };
-    const handlePressMenu = () => {
-    Alert.alert('📂 Você clicou no menu!');
-  };
-   const handlePressUser = () => {
-    Alert.alert('👤 Você clicou no usuário!');
-  };
-    const handleclock = () => {
-    Alert.alert('Você clicou no usuario');
-  };
 export default function HomeScreen({ navigation }) {
   return (
     <ImageBackground
@@ -23,53 +11,53 @@ export default function HomeScreen({ navigation }) {
       {/* Header */}
       <View style={styles.header}>
 
-        <TouchableOpacity onPress={handlePressMenu} size={36} color="#b00000">
-            <Ionicons>
+        <TouchableOpacity size={36} color="#b00000">
+          <Ionicons>
             <Image source={require('../../assets/menuamburguer.png')} style={styles.icons2} />
-        </Ionicons>
-        </TouchableOpacity>   
+          </Ionicons>
+        </TouchableOpacity>
 
-        <Ionicons> 
-            <Image source={require('../../assets/escudo.png')} style={styles.icons2} />
+        <Ionicons>
+          <Image source={require('../../assets/escudo.png')} style={styles.icons1} />
         </Ionicons>
-        <TouchableOpacity onPress={handlePressUser} size={36} color="#b00000">
-            <Ionicons>
+        <TouchableOpacity size={36} color="#b00000">
+          <Ionicons>
             <Image source={require('../../assets/profile.png')} style={styles.icons2} />
-        </Ionicons>
-        </TouchableOpacity>    
+          </Ionicons>
+        </TouchableOpacity>
 
-        </View>
+      </View>
 
       {/* Escudo */}
       <View style={styles.shieldContainer}>
         <TouchableOpacity onPress={() => navigation.navigate("Denunciar")} size={36} color="#b00000">
-            
-            <Image source={require('../../assets/escudado.png')} style={styles.central} />
-        
-        </TouchableOpacity>     
+
+          <Image source={require('../../assets/escudado.png')} style={styles.central} />
+
+        </TouchableOpacity>
       </View>
-      
+
 
       {/* Botões */}
       <View style={styles.buttonsContainer}>
-        
+
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Denuncia")}>
-            <Image source={require('../../assets/patinhas.png')} style={styles.icons} />
+          <Image source={require('../../assets/patinhas.png')} style={styles.icons} />
           <Text style={styles.buttonText}>Status da{"\n"}Denúncia</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Ongs")}>
-            <Image source={require('../../assets/maps.png')} style={styles.icons} />
+          <Image source={require('../../assets/maps.png')} style={styles.icons} />
           <Text style={styles.buttonText}>ONG’s{"\n"}mais próximas</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("InformacoesParaAjuda")}>
-            <Image source={require('../../assets/lup.png')} style={styles.icons} />
+          <Image source={require('../../assets/lup.png')} style={styles.icons} />
           <Text style={styles.buttonText}>Informações para {"\n"}Ajuda</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("FeedBack")}>
-            <Image source={require('../../assets/core.png')} style={styles.icons} />
+          <Image source={require('../../assets/core.png')} style={styles.icons} />
           <Text style={styles.buttonText}>Quero Ajudar{"\n"} FeedBack</Text>
         </TouchableOpacity>
       </View>
@@ -78,72 +66,84 @@ export default function HomeScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  background: { 
-    flex: 1, 
-    alignItems: "center", 
-    justifyContent: "space-between", 
-    paddingTop: 60 },
-
-  header: { 
-    width: "110%", 
-    flexDirection: "row", 
-    justifyContent: "space-between", 
+  background: {
+    flex: 1,
     alignItems: "center",
-    left:"2%", 
-},
-    
-  shieldContainer: { 
-    flex: 1, 
-    justifyContent: "center", 
-    alignItems: "center" },
+    justifyContent: "space-between",
+    paddingTop: 60
+  },
 
-  escudo:{
+  header: {
+    width: "140%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    left: "2%",
+    marginTopr: "60%",
+  },
+
+  shieldContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+
+  escudo: {
     width: 100,
     height: 100,
     justifyContent: "center",
     alignItems: "center",
+
   },
-    central:{
-    width: 290,
-    height: 540,
+  central: {
+    width: 390,
+    height: 640,
     justifyContent: "center",
     alignItems: "center",
-    top:"10%",
+    top: "10%",
+
   },
 
   buttonsContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
     marginBottom: 50,
-    top:"26%",
-    left:"9.5%",
+    top: "26%",
+    left: "9.5%",
   },
-button: {
-  width: "40%",
-  alignItems: "center",
-  justifyContent: "center",
-  backgroundColor: "transparent",
+  button: {
+    width: "40%",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "transparent",
 
-},
-    icons: {
+  },
+  icons: {
     width: "40%",
     height: "30%",
     alignItems: "center",
     justifyContent: "center",
     borderColor: "#b00000",
-    borderWidth: 0,       
-    borderRadius: 15,  
+    borderWidth: 0,
+    borderRadius: 15,
     resizeMode: "contain", // mantém proporção
     shadowColor: "#000",
-  shadowOpacity: 0.7,
-  shadowOffset: { width: 0, height: 4 },
-  shadowRadius: 4,
-  elevation: 9, // (Android)
+    shadowOpacity: 0.7,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 4,
+    elevation: 9, // (Android)
   },
 
   icons2: {
     width: "40%",
     height: "30%",
+    display: "none",
+    marginBottom: "20%",
+  },
+  icons1: {
+    width: "40%",
+    height: "30%",
+    display: "none",
   },
   buttonText: { color: "#b00000", fontWeight: "bold", textAlign: "center", marginTop: 6 },
 });
