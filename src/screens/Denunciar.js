@@ -71,7 +71,7 @@ export default function Form() {
                   value={values.endereco}
                 />
                 {errors.endereco && touched.endereco && <Text style={styles.error}>{errors.endereco}</Text>}
-                />
+                
                 <Text style={styles.label}>Comunicação dos Fatos:</Text>
                 <TextInput
                   style={styles.input}
