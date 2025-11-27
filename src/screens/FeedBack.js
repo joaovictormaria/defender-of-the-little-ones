@@ -1,20 +1,22 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { 
-  View, 
-  Text, 
-  StyleSheet, 
-  TouchableOpacity, 
-  TextInput, 
-  Alert, 
-  ScrollView 
+import {
+  Alert,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
 } from 'react-native';
+import BackButton from '../components/BackButton';
 
 const PRIMARY_RED = '#DC3545';
 const PRIMARY_BLUE = '#ff1e00ff';
 
-const Feedback = ({ navigation }) => {
+const Feedback = () => {
   const [formData, setFormData] = useState({
-    tipo: 'sugestao', 
+    tipo: 'sugestao',
     texto: '',
     contato: ''
   });
@@ -28,6 +30,7 @@ const Feedback = ({ navigation }) => {
       [name]: value
     }));
   };
+  const navigation = useNavigation();
 
   const handleSubmit = () => {
     if (!formData.texto.trim()) {
@@ -36,54 +39,59 @@ const Feedback = ({ navigation }) => {
     }
 
     if (formData.contato.trim() && !emailRegex.test(formData.contato)) {
-        Alert.alert("Erro", "Por favor, insira um endereço de e-mail ou telefone válido, ou deixe o campo de contato vazio.");
-        return;
+      Alert.alert(
+        "Erro",
+        "Por favor, insira um endereço de e-mail ou telefone válido, ou deixe o campo de contato vazio."
+      );
+      return;
     }
 
-    console.log('Dados prontos para envio:', formData);
+    console.log("Dados prontos para envio:", formData);
 
     Alert.alert(
       "Obrigado!",
       "Seu feedback foi registrado com sucesso.",
       [
-        { 
-          text: "OK", 
+        {
+          text: "OK",
           onPress: () => {
-            setFormData({ tipo: 'sugestao', texto: '', contato: '' });
-          }
-        }
+            setFormData({ tipo: "sugestao", texto: "", contato: "" });
+
+            navigation.navigate("Home");
+          },
+        },
       ]
     );
   };
-
   return (
-    <ScrollView 
-        style={styles.scrollContainer} 
-        contentContainerStyle={styles.contentContainer}
+    <ScrollView
+      style={styles.scrollContainer}
+      contentContainerStyle={styles.contentContainer}
     >
       <View style={styles.container}>
+        <BackButton navigation={navigation} />
         <Text style={styles.title}>Envie-nos seu Feedback</Text>
         <Text style={styles.subtitle}>Sua opinião nos ajuda a defender os pequenos!</Text>
 
         <Text style={styles.label}>Tipo de Feedback:</Text>
         <View style={styles.typeContainer}>
-            {feedbackTypes.map(type => (
-                <TouchableOpacity
-                    key={type}
-                    style={[
-                        styles.typeButton,
-                        formData.tipo.toLowerCase() === type.toLowerCase() && styles.typeButtonSelected
-                    ]}
-                    onPress={() => handleChange('tipo', type.toLowerCase())}
-                >
-                    <Text style={[
-                        styles.typeButtonText,
-                        formData.tipo.toLowerCase() === type.toLowerCase() && styles.typeButtonTextSelected
-                    ]}>
-                        {type}
-                    </Text>
-                </TouchableOpacity>
-            ))}
+          {feedbackTypes.map(type => (
+            <TouchableOpacity
+              key={type}
+              style={[
+                styles.typeButton,
+                formData.tipo.toLowerCase() === type.toLowerCase() && styles.typeButtonSelected
+              ]}
+              onPress={() => handleChange('tipo', type.toLowerCase())}
+            >
+              <Text style={[
+                styles.typeButtonText,
+                formData.tipo.toLowerCase() === type.toLowerCase() && styles.typeButtonTextSelected
+              ]}>
+                {type}
+              </Text>
+            </TouchableOpacity>
+          ))}
         </View>
 
 
@@ -122,12 +130,12 @@ const Feedback = ({ navigation }) => {
 const styles = StyleSheet.create({
   scrollContainer: {
     flex: 1,
-    backgroundColor: '#f5f5f5', 
+    backgroundColor: '#f5f5f5',
   },
   contentContainer: {
     paddingBottom: 40,
-    flexGrow: 1, 
-    justifyContent: 'center', 
+    flexGrow: 1,
+    justifyContent: 'center',
   },
   container: {
     padding: 20,
@@ -152,33 +160,33 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     color: '#333',
   },
-  
+
   typeContainer: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      marginBottom: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 10,
   },
   typeButton: {
-      flex: 1,
-      padding: 10,
-      marginHorizontal: 4,
-      borderRadius: 5,
-      borderWidth: 1,
-      borderColor: '#ccc',
-      backgroundColor: '#fff',
-      alignItems: 'center',
+    flex: 1,
+    padding: 10,
+    marginHorizontal: 4,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    backgroundColor: '#fff',
+    alignItems: 'center',
   },
   typeButtonSelected: {
-      backgroundColor: PRIMARY_RED, 
-      borderColor: PRIMARY_RED,
+    backgroundColor: PRIMARY_RED,
+    borderColor: PRIMARY_RED,
   },
   typeButtonText: {
-      fontSize: 14,
-      color: '#333',
+    fontSize: 14,
+    color: '#333',
   },
   typeButtonTextSelected: {
-      color: '#fff',
-      fontWeight: 'bold',
+    color: '#fff',
+    fontWeight: 'bold',
   },
 
   input: {
@@ -192,7 +200,7 @@ const styles = StyleSheet.create({
   },
   textArea: {
     height: 100,
-    textAlignVertical: 'top', 
+    textAlignVertical: 'top',
   },
   button: {
     backgroundColor: PRIMARY_RED,
