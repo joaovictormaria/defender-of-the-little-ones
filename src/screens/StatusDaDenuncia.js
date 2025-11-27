@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import BackButton from '../components/BackButton';
 
 export default function StatusDenunciaScreen() {
   const [protocolos, setProtocolos] = useState([]);
@@ -33,7 +34,7 @@ export default function StatusDenunciaScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-
+      <BackButton />
       <Text style={styles.title}>STATUS DE DENÚNCIA</Text>
 
       <View style={styles.searchBox}>
@@ -223,6 +224,6 @@ const styles = StyleSheet.create({
     width: 16,
     height: 16,
     borderRadius: 8,
-    marginRight: 10,
-  },
+    marginRight: 10,
+  },
 });

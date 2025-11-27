@@ -1,14 +1,12 @@
 'use client'
-import React, { useState } from 'react';
-import { View, TextInput, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Formik } from 'formik';
-import { ImageBackground } from "react-native";
-import UploadMidia from '../components/UploadMidia';
-import BackButton from '../components/BackButton';
-import Checkbox from 'expo-checkbox';
 import { useNavigation } from '@react-navigation/native';
+import Checkbox from 'expo-checkbox';
+import { Formik } from 'formik';
+import React, { useState } from 'react';
+import { Alert, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import BackButton from '../components/BackButton';
 import ToastSucesso from '../components/toast/Toast';
-import { Alert } from 'react-native';
+import UploadMidia from '../components/UploadMidia';
 
 
 
@@ -96,7 +94,7 @@ export default function Form() {
 
         <View style={styles.form}>
           <BackButton />
-          <Text style={styles.buttonText}>Denunciar {'\n'} Maus-Tratos</Text>
+          <Text style={styles.buttonText}>Denunciar {'\n'} Maus-Tratos ou Abandono</Text>
 
 
 
@@ -119,8 +117,10 @@ export default function Form() {
                 <Text style={styles.label}>Telefone:</Text>
                 <TextInput
                   style={styles.input}
-                  onChangeText={handleChange('telefone')}
-                  onBlur={handleBlur('telefone')}
+                  onChangeText={(text) => {
+                    const somenteNumeros = text.replace(/[^0-9]/g, "");
+                    handleChange("telefone")(somenteNumeros);
+                  }} onBlur={handleBlur('telefone')}
                   value={values.telefone}
                   keyboardType="numeric"
 
@@ -158,8 +158,7 @@ export default function Form() {
                   />
                   <Text style={{
                     marginLeft: 10, color: 'white', fontSize: 13,
-                  }}>Declaro que estou enviando esta denúncia de maus-tratos por livre e espontânea vontade, ciente de que as informações fornecidas serão analisadas conforme as diretrizes e políticas de privacidade da plataforma.
-                    Autorizo o uso dos dados informados exclusivamente para fins de apuração e encaminhamento da denúncia, conforme previsto em lei.</Text>
+                  }}>Declaro que estou enviando esta denúncia de maus-tratos por livre e espontânea vontade... Ler mais</Text>
 
                 </View>
 
@@ -232,6 +231,5 @@ const styles = StyleSheet.create({
     color: 'red',
     marginBottom: 10,
   },
-  buttonText: { color: "#fff", fontSize: 34, fontWeight: "900", textAlign: "center", bottom: 20, fontFamily: 'Anton_400Regular' },
-
+  buttonText: { color: "#fff", fontSize: 24, fontWeight: "700", textAlign: "center", bottom: 20, fontFamily: 'Anton_400Regular' },
 });

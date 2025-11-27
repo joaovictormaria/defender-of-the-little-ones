@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import { Alert, Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -96,11 +96,11 @@ const styles = StyleSheet.create({
 
   },
   central: {
-    width: 390,
-    height: 640,
+    width: 320,
+    height: 550,
     justifyContent: "center",
     alignItems: "center",
-    top: "10%",
+    top: "5%",
 
   },
 
@@ -141,9 +141,8 @@ const styles = StyleSheet.create({
     marginBottom: "20%",
   },
   icons1: {
-    width: "40%",
+    width: "41%",
     height: "30%",
-    display: "none",
   },
   buttonText: { color: "#b00000", fontWeight: "bold", textAlign: "center", marginTop: 6 },
 });

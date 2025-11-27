@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { View, Button, Image, Text, TouchableOpacity } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import React, { useState } from 'react';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 
 export default function UploadMidia() {
     const [media, setMedia] = useState(null);
@@ -46,7 +46,7 @@ export default function UploadMidia() {
                     ) : (
                         <Image
                             source={{ uri: media.uri }}
-                            style={{ width: 200, height: 200, borderRadius: 10, marginTop: 10 }}
+                            style={{ width: 100, height: 100, borderRadius: 10, marginTop: 10 }}
                         />
                     )}
                 </>

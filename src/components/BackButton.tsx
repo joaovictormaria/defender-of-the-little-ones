@@ -1,8 +1,8 @@
 // BackButton.js
-import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons'; // ícones bonitos do Expo
+import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 export default function BackButton({ label = 'Voltar' }) {
     const navigation = useNavigation();

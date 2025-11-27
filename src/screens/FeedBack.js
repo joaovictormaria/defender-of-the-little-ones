@@ -10,11 +10,14 @@ import {
   View
 } from 'react-native';
 import BackButton from '../components/BackButton';
+import ToastSucesso from '../components/toast/Toast';
 
 const PRIMARY_RED = '#DC3545';
 const PRIMARY_BLUE = '#ff1e00ff';
 
 const Feedback = () => {
+  const [toastMessage, setToastMessage] = useState('');
+  const [toastVisible, setToastVisible] = useState(false);
   const [formData, setFormData] = useState({
     tipo: 'sugestao',
     texto: '',
@@ -47,21 +50,16 @@ const Feedback = () => {
     }
 
     console.log("Dados prontos para envio:", formData);
-
-    Alert.alert(
-      "Obrigado!",
-      "Seu feedback foi registrado com sucesso.",
-      [
-        {
-          text: "OK",
-          onPress: () => {
-            setFormData({ tipo: "sugestao", texto: "", contato: "" });
-
-            navigation.navigate("Home");
-          },
-        },
-      ]
-    );
+    setFormData({ tipo: "sugestao", texto: "", contato: "" });
+    setToastMessage(`Feedback enviado com sucesso!`);
+    setToastVisible(true);
+    setTimeout(() => {
+      setToastVisible(false);
+    }, 1800);
+    setTimeout(() => {
+      setToastVisible(false);
+      navigation.navigate("Home");
+    }, 1800);
   };
   return (
     <ScrollView
@@ -123,6 +121,8 @@ const Feedback = () => {
           <Text style={styles.backButtonText}>Voltar</Text>
         </TouchableOpacity>
       </View>
+      <ToastSucesso visible={toastVisible} message={toastMessage} />
+
     </ScrollView>
   );
 };
